@@ -1,4 +1,4 @@
-# REACT PET HR PROJECT
+# REX PROJECT
 
 ## STACK TECHNICAL
 
@@ -19,7 +19,7 @@
 
 ### Tools
 
-- tslint (https://gist.github.com/rimatla/a5a2c5dcf831c5744a656cfe81fadf52)
+- tslint
 - prettier
 - husky
 
@@ -27,6 +27,7 @@
 
 ### Install extensions
 
+- eslint
 - tslint
 - prettier
 
@@ -51,6 +52,14 @@ Adding in the settings.json file
 ```
 
 ## Installation
+
+```bash
+# install node version
+Please install at least v12.16.1 version node
+
+# install npm version
+Please install at least v6.13.4 version node
+```
 
 ```bash
 # install app's depndencie

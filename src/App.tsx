@@ -10,12 +10,7 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<div>loading...</div>}>
         <Switch>
-          <Route
-            exact={true}
-            path="/login"
-            name="Login Page"
-            component={Login}
-          />
+          <Route exact path="/login" name="Login Page" component={Login} />
           <Route path="/" name="Home" component={DefaultLayout} />
         </Switch>
       </Suspense>
