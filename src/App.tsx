@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // containers
@@ -10,7 +10,12 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<div>loading...</div>}>
         <Switch>
-          <Route exact path="/login" name="Login Page" component={Login} />
+          <Route
+            exact={true}
+            path="/login"
+            name="Login Page"
+            component={Login}
+          />
           <Route path="/" name="Home" component={DefaultLayout} />
         </Switch>
       </Suspense>
