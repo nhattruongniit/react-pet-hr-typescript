@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Helvetica Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/Helvetica/Helvetica.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Bold';
+  font-style: bold;
+  src: url('../assets/fonts/Helvetica/Helvetica-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Regular';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/Helvetica/HelveticaNeue.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/Helvetica/HelveticaNeue.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Bold';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/Helvetica/HelveticaNeue-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Snell Roundhand Bold';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/SnellRoundhand/SnellRoundhand-Bold.ttf') format('truetype');
+}

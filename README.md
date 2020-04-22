@@ -1,4 +1,4 @@
-# REX PROJECT
+# PET HR PROJECT
 
 ## STACK TECHNICAL
 
@@ -19,9 +19,17 @@
 
 ### Tools
 
-- tslint
+- eslint
 - prettier
 - husky
+
+## Git replacing LF with CRLF
+
+```
+$ git config --global core.autocrlf false
+$ git rm --cached -r .
+$ git reset --hard
+```
 
 ## Config VSCode
 
@@ -63,8 +71,6 @@ Please install at least v6.13.4 version node
 
 ```bash
 # install app's depndencie
-$ yarn install
-or
 $ npm install
 ```
 
@@ -72,16 +78,16 @@ $ npm install
 
 ```bash
 # dev server with PORT 3002 at http://localhost:3002/
-$ yarn start
+$ npm start
 
 # build for production with minify
-$ yarn run build
+$ npm run build
 
 # run `lint` to tell you what is wrong code.
-$ yarn run lint
+$ npm run lint
 
 # run `format` to format all code based on your prettier and linting configuration.
-$ yarn run format
+$ npm run format
 ```
 
 ## Direction
@@ -99,7 +105,7 @@ $ yarn run format
 │   ├── containers/  #containers source
 │   ├── hooks/       #hooks source
 │   ├── models/      #define interface
-│   ├── modules/     #modules source
+│   ├── features/    #features source
 │   ├── scss/        #user scss/css source
 │   ├── services/    #services source
 │   ├── App.js
