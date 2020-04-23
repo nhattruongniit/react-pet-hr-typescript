@@ -4,7 +4,7 @@ import { lazy } from 'react';
 const Home = lazy(() => import('features/Home'));
 
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, name: 'Home', component: Home },
   { path: '/home', name: 'Home Page', component: Home },
 ];
 

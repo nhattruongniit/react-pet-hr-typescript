@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 // route config
 import { routes, routesWithoutFooter } from 'routes';
@@ -14,7 +14,9 @@ function DefaultLayout() {
   const [withoutFooter, setWithoutFooter] = useState<Boolean>(true);
 
   useEffect(() => {
-    const withoutFooter = routesWithoutFooter.some((route) => route.pathname === location.pathname);
+    const withoutFooter = routesWithoutFooter.some(
+      (route) => route.pathname === location.pathname,
+    );
     setWithoutFooter(withoutFooter);
   }, [location.pathname]);
 
@@ -37,7 +39,7 @@ function DefaultLayout() {
           <Suspense fallback={<div />}>
             <Switch>
               {routes.map((route, idx) => {
-                return route.component ? (
+                return (
                   <Route
                     key={idx}
                     path={route.path}
@@ -45,9 +47,8 @@ function DefaultLayout() {
                     name={route.name}
                     component={route.component}
                   />
-                ) : null;
+                );
               })}
-              <Redirect from="/" to="/home" />
             </Switch>
           </Suspense>
         </div>
