@@ -27,8 +27,6 @@ const theme = createMuiTheme({
       'Helvetica Regular, Helvetica, Arial, Verdana, Tahoma, sans-serif',
     ].join(','),
     h1: {
-      fontStyle: 'italic',
-      fontFamily: 'Snell Roundhand Bold',
       fontWeight: 'bold',
       fontSize: '2rem',
     },

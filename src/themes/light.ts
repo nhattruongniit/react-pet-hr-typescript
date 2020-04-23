@@ -8,7 +8,7 @@ const lightTheme = createMuiTheme({
       white: '#fff',
     },
     primary: {
-      main: '#92003b',
+      main: '#f00',
       light: '#fff',
     },
     secondary: {
@@ -37,6 +37,11 @@ const lightTheme = createMuiTheme({
         '&:hover': { backgroundColor: '#ba7402 !important' },
       },
     },
+    MuiDrawer: {
+      paper: {
+        width: '70%',
+      },
+    },
     MuiListItemText: {
       secondary: {
         fontSize: '1rem',
@@ -47,7 +52,11 @@ const lightTheme = createMuiTheme({
         color: '#fff',
       },
     },
+    MuiInputBase: {
+      input: {
+        color: '#000',
+      },
+    },
   },
 });
-
 export default lightTheme;

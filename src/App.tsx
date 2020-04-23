@@ -8,7 +8,7 @@ import AuthRoute from 'containers/AuthRoute';
 const DefaultLayout = lazy(() => import('containers/DefaultLayout'));
 const Login = lazy(() => import('features/Login'));
 
-const isAuth = false;
+const isAuth = true;
 
 function App() {
   return (

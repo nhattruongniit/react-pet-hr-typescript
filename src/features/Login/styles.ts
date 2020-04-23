@@ -9,21 +9,6 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     minHeight: '100vh',
     padding: 15,
-    backgroundImage: 'url(/assets/images/bg.jpg)',
-    backgroundRepeat: ' no-repeat',
-    backgroundSize: 'cover',
-
-    '&::before': {
-      content: '""',
-      backgroundColor: '#590927',
-      opacity: 0.91,
-      width: '100%',
-      height: '100%',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      zIndex: 0,
-    },
   },
   zIndexOne: {
     zIndex: 1,

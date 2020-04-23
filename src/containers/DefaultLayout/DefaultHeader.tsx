@@ -53,7 +53,7 @@ const DefaultHeader = ({ setSidebar }: IProps) => {
         <TypographyBase
           variant="h1"
           color="textPrimary"
-          text="Fashion"
+          text="HR Admin"
           component="div"
         />
         <IconButtonBase

@@ -30,7 +30,11 @@ const DefaultFooter = memo(() => {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction color="primary" label="Home" icon={<HomeIcon />} />
+      <BottomNavigationAction
+        color="primary"
+        label="Home"
+        icon={<HomeIcon />}
+      />
       <BottomNavigationAction label="Menu" icon={<MenuIcon />} />
       <BottomNavigationAction label="Cart" icon={<ShoppingCartIcon />} />
       <BottomNavigationAction label="Go Top" icon={<ArrowUpwardIcon />} />

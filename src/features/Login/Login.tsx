@@ -2,13 +2,11 @@ import React from 'react';
 import { useHistory, Link } from 'react-router-dom';
 
 // material UI
-import { Grid, Fab } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 // material icon
 import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import FacebookIcon from '@material-ui/icons/Facebook';
 
 // atoms
 import TextFields from 'components/atoms/TextFields';
@@ -28,10 +26,14 @@ const Login = () => {
   };
 
   return (
-    <Grid container direction="column" alignItems="stretch" alignContent="center" className={classes.loginContainer}>
-      <Grid container justify="center" className={classes.zIndexOne}>
-        <img src="/assets/images/logo.png" alt="logo" title="logo" />
-      </Grid>
+    <Grid
+      container
+      direction="column"
+      alignItems="stretch"
+      alignContent="center"
+      className={classes.loginContainer}
+    >
+      <h1>Login</h1>
       <Grid container className={classes.content}>
         <Grid container>
           <TextFields
@@ -51,27 +53,37 @@ const Login = () => {
         </Grid>
         <Grid container justify="flex-end">
           <div className={classes.textForget}>
-            <TypographyBase variant="h6" color="textPrimary" text="Forget Password?" component="a" />
+            <TypographyBase
+              variant="h6"
+              color="textPrimary"
+              text="Forget Password?"
+              component="a"
+            />
           </div>
         </Grid>
         <Grid container>
-          <ButtonBase variant="contained" type="button" text="Login" handleSubmit={handleSubmit} />
+          <ButtonBase
+            variant="contained"
+            type="button"
+            text="Login"
+            handleSubmit={handleSubmit}
+          />
         </Grid>
-        <Grid container item alignItems="center" justify="space-evenly" className={classes.spaceBoth}>
+        <Grid
+          container
+          item
+          alignItems="center"
+          justify="space-evenly"
+          className={classes.spaceBoth}
+        >
           <Link to="/register">
-            <TypographyBase variant="h6" color="textPrimary" text="Please register" component="span" />
+            <TypographyBase
+              variant="h6"
+              color="textPrimary"
+              text="Please register"
+              component="span"
+            />
           </Link>
-        </Grid>
-        <Grid container direction="column" item justify="space-around" alignItems="center">
-          <TypographyBase variant="h6" color="textPrimary" text="Login Via SNS" component="div" />
-          <Grid container alignItems="center" item justify="space-evenly" className={classes.spaceBoth}>
-            <Fab aria-label="Add" color="primary" className={classes.fabFace}>
-              <FacebookIcon />
-            </Fab>
-            <Fab aria-label="Add" className={classes.fabMail}>
-              <MailOutlineIcon />
-            </Fab>
-          </Grid>
         </Grid>
       </Grid>
     </Grid>
