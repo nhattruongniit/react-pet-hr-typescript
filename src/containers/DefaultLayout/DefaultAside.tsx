@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 
 // material core
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,12 +28,25 @@ const useStyles = makeStyles({
   },
 });
 
-type IProps = {
-  showSidebar: boolean;
-  setSidebar: (showSidebar: boolean) => void;
+// redux
+const mapStateToProps = (state: IState) => {
+  const {
+    app: { showSidebar },
+  } = state;
+  return {
+    showSidebar,
+  };
 };
 
-const DefaultAside = ({ showSidebar, setSidebar }: IProps) => {
+const mapDispatchToProps = {
+  setSidebar,
+};
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+const DefaultAside = ({ showSidebar, setSidebar }: PropsFromRedux) => {
   const classes = useStyles();
 
   const toggleDrawer = () => {
@@ -57,17 +70,4 @@ const DefaultAside = ({ showSidebar, setSidebar }: IProps) => {
   );
 };
 
-const mapStateToProps = (state: IState) => {
-  const {
-    app: { showSidebar },
-  } = state;
-  return {
-    showSidebar,
-  };
-};
-
-const mapDispatchToProps = {
-  setSidebar,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(DefaultAside);
+export default connector(DefaultAside);
