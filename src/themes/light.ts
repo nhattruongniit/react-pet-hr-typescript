@@ -1,62 +1,36 @@
-import { createMuiTheme } from '@material-ui/core';
+import { colors, createMuiTheme } from '@material-ui/core';
 
 const lightTheme = createMuiTheme({
   palette: {
     type: 'light',
-    common: {
-      black: '#000',
-      white: '#fff',
-    },
-    primary: {
-      main: '#f00',
-      light: '#fff',
-    },
-    secondary: {
-      main: '#fff',
-      light: '#ff4081',
+    action: {
+      active: colors.blueGrey[600],
     },
     background: {
-      default: '#fafafa',
-      paper: '#fff',
+      default: colors.common.white,
+      paper: colors.common.white,
+    },
+    primary: {
+      main: colors.indigo[600],
+    },
+    secondary: {
+      main: '#5850EC',
     },
     text: {
-      primary: '#fff',
-      secondary: '#757575',
+      primary: colors.blueGrey[900],
+      secondary: colors.blueGrey[600],
     },
   },
   overrides: {
-    MuiButton: {
-      contained: {
-        height: 40,
-        color: '#fff',
-        backgroundColor: '#ba7402',
-        textAlign: 'center',
-        boxShadow: 'none',
-        padding: '5px 16px',
-        textTransform: 'none',
-        '&:hover': { backgroundColor: '#ba7402 !important' },
-      },
-    },
-    MuiDrawer: {
-      paper: {
-        width: '70%',
-      },
-    },
-    MuiListItemText: {
-      secondary: {
-        fontSize: '1rem',
-      },
-    },
-    MuiBottomNavigationAction: {
-      wrapper: {
-        color: '#fff',
-      },
-    },
     MuiInputBase: {
       input: {
-        color: '#000',
+        '&::placeholder': {
+          opacity: 1,
+          color: colors.blueGrey[600],
+        },
       },
     },
   },
 });
+
 export default lightTheme;
