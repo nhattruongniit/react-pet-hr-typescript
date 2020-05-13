@@ -1,48 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
-// material core
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
-// themes
-import { lightTheme } from 'themes';
 
 // stores
 import { store } from 'stores';
 
+// context
+import { GlobalProvider } from 'context/GlobalContext';
+
 // service worker
 import * as serviceWorker from './serviceWorker';
+
+// i18n
+import './i18n';
+
 // scss
 import './scss/index.scss';
 
 // containers
 import App from './App';
 
-const theme = createMuiTheme({
-  ...lightTheme,
-  typography: {
-    fontFamily: [
-      'Helvetica Regular, Helvetica, Arial, Verdana, Tahoma, sans-serif',
-    ].join(','),
-    h1: {
-      fontWeight: 'bold',
-      fontSize: '2rem',
-    },
-    h6: {
-      fontSize: '0.9rem',
-    },
-  },
-});
-
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
   </Provider>,
   document.getElementById('root'),
 );

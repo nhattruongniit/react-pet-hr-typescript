@@ -1,68 +1,49 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+// material core
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 // route config
-import { routes, routesWithoutFooter } from 'routes';
+import routes from 'routes';
+
+// styles
+import useStyles from './styles';
 
 // features
 const DefaultAside = lazy(() => import('./DefaultAside'));
 const DefaultHeader = lazy(() => import('./DefaultHeader'));
-const DefaultFooter = lazy(() => import('./DefaultFooter'));
 
-function DefaultLayout() {
-  const location = useLocation();
-  const [withoutFooter, setWithoutFooter] = useState<Boolean>(true);
-
-  useEffect(() => {
-    const withoutFooter = routesWithoutFooter.some(
-      (route) => route.pathname === location.pathname,
-    );
-    setWithoutFooter(withoutFooter);
-  }, [location.pathname]);
+const DefaultLayout = () => {
+  const classes = useStyles();
 
   return (
-    <div className="app">
+    <div className={classes.root}>
+      <CssBaseline />
       <header>
         <Suspense fallback={<div />}>
           <DefaultHeader />
         </Suspense>
       </header>
-
       <aside>
         <Suspense fallback={<div />}>
           <DefaultAside />
         </Suspense>
       </aside>
-
-      <main>
-        <div className="container">
-          <Suspense fallback={<div />}>
-            <Switch>
-              {routes.map((route, idx) => {
-                return (
-                  <Route
-                    key={idx}
-                    path={route.path}
-                    exact={route.exact}
-                    name={route.name}
-                    component={route.component}
-                  />
-                );
-              })}
-            </Switch>
-          </Suspense>
-        </div>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Suspense fallback={<div />}>
+          <Switch>
+            {routes.map((route, idx) => {
+              return (
+                <Route key={idx} path={route.path} exact={route.exact} name={route.name} component={route.component} />
+              );
+            })}
+          </Switch>
+        </Suspense>
       </main>
-
-      {withoutFooter ? null : (
-        <footer>
-          <Suspense fallback={<div />}>
-            <DefaultFooter />
-          </Suspense>
-        </footer>
-      )}
     </div>
   );
-}
+};
 
 export default DefaultLayout;

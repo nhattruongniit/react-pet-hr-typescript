@@ -1,9 +1,17 @@
-import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect, ConnectedProps } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+
+// context
+import { useGlobalContext } from 'context/GlobalContext';
 
 // themes
 import theme from 'themes';
+
+// types
+import IState from 'IState';
 
 // auth route
 import AuthRoute from 'containers/AuthRoute';
@@ -12,23 +20,43 @@ import AuthRoute from 'containers/AuthRoute';
 const DefaultLayout = lazy(() => import('containers/DefaultLayout'));
 const Login = lazy(() => import('features/Login'));
 
+// redux
+const mapStateToProps = (state: IState) => {
+  const {
+    app: { mode },
+  } = state;
+  return {
+    mode,
+  };
+};
+const connector = connect(mapStateToProps, null);
+type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const isAuth = true;
 
-function App() {
+const App = ({ mode }: PropsFromRedux) => {
   // 0: light, 1: dark
-  const type = 0;
+  const type = mode === 'light' ? 0 : 1;
+  const { lang } = useGlobalContext();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage(lang)
+  }, [lang])
 
   return (
     <MuiThemeProvider theme={theme(type)}>
-      <Suspense fallback={<div />}>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <AuthRoute path="/" isAuth={isAuth} component={DefaultLayout} />
-        </Switch>
-      </Suspense>
+      <BrowserRouter>
+        <Suspense fallback={<div />}>
+          <Switch>
+            {/* <Route exact path="/login" render={() => isAuth ? <Redirect to="/" /> : <Login />} /> */}
+            <Route exact path="/login" component={Login} />
+            <AuthRoute path="/" isAuth={isAuth} component={DefaultLayout} />
+          </Switch>
+        </Suspense>
+      </BrowserRouter>
     </MuiThemeProvider>
   );
 }
 
-export default App;
+export default connector(App);

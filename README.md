@@ -6,6 +6,8 @@
 
 - axios
 - react typescript
+- i18n
+- contextApi
 - redux
 - redux-saga
 

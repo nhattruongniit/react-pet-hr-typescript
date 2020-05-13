@@ -1,11 +1,13 @@
 import { AppActionTypes } from './types';
 
-export const setSidebar = (showSidebar: boolean) => ({
-  type: AppActionTypes.SET_SIDEBAR_REQUEST,
-  payload: { showSidebar },
+// toggle sidebar
+export const setSidebar = (isSidebar: boolean) => ({
+  type: AppActionTypes.SET_SIDEBAR,
+  payload: { isSidebar },
 });
 
-export const setSidebarSuccess = (showSidebar: boolean) => ({
-  type: AppActionTypes.SET_SIDEBAR_SUCCESS,
-  payload: { showSidebar },
+// change dark mode
+export const setDarkMode = (mode: string) => ({
+  type: AppActionTypes.SET_DARK_MODE,
+  payload: { mode },
 });

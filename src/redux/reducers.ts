@@ -2,15 +2,21 @@
 import { AppActionTypes, IAppState, IAppAction } from './types';
 
 const initialState: IAppState = {
-  showSidebar: false,
+  isSidebar: false,
+  mode: 'light',
 };
 
 const reducers = (state = initialState, { type, payload }: IAppAction) => {
   switch (type) {
-    case AppActionTypes.SET_SIDEBAR_REQUEST:
+    case AppActionTypes.SET_SIDEBAR:
       return {
         ...state,
-        showSidebar: payload.showSidebar,
+        isSidebar: payload.isSidebar,
+      };
+    case AppActionTypes.SET_DARK_MODE:
+      return {
+        ...state,
+        mode: payload.mode,
       };
     default:
       return state;

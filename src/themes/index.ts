@@ -11,7 +11,6 @@ const theme = (type: number) =>
   createMuiTheme({
     ...typeTheme[type],
     typography: {
-      fontFamily: ['Noto Sans JP, sans-serif'].join(','),
       h1: {
         fontWeight: 500,
         fontSize: '35px',

@@ -1,15 +1,19 @@
 export type IAppState = {
-  showSidebar: boolean;
+  isSidebar: boolean;
+  mode: string;
 };
 
 export type IAppAction = {
   type: string;
   payload: {
-    showSidebar: boolean;
+    isSidebar: boolean;
+    mode: string;
   };
 };
 
 export enum AppActionTypes {
-  SET_SIDEBAR_REQUEST = 'APP/SET_SIDEBAR_REQUEST',
-  SET_SIDEBAR_SUCCESS = 'APP/SET_SIDEBAR_SUCCESS',
+  // toggle side bar
+  SET_SIDEBAR = 'APP/SET_SIDEBAR',
+  // dark mode
+  SET_DARK_MODE = 'APP/SET_DARK_MODE',
 }

@@ -8,6 +8,5 @@ const routes = [
   { path: '/home', name: 'Home Page', component: Home },
 ];
 
-const routesWithoutFooter = [{ pathname: '/' }, { pathname: '/home' }];
 
-export { routes, routesWithoutFooter };
+export default routes;

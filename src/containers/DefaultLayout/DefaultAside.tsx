@@ -1,40 +1,40 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 // material core
-import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
+import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Hidden from '@material-ui/core/Hidden';
 
 // material icons
-import HomeIcon from '@material-ui/icons/Home';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+
+// atoms
+import TypographyBase from 'components/atoms/TypographyBase';
 
 // actions
 import { setSidebar } from 'redux/actions';
 
-// type
+// types
 import IState from 'IState';
 
-const useStyles = makeStyles({
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
+// styles
+import useStyles from './styles';
 
 // redux
 const mapStateToProps = (state: IState) => {
   const {
-    app: { showSidebar },
+    app: { isSidebar },
   } = state;
   return {
-    showSidebar,
+    isSidebar,
   };
 };
 
@@ -46,28 +46,75 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-const DefaultAside = ({ showSidebar, setSidebar }: PropsFromRedux) => {
-  const classes = useStyles();
+interface ResponsiveDrawerProps {
+  container?: any;
+}
 
-  const toggleDrawer = () => {
+type IProps = ResponsiveDrawerProps & PropsFromRedux;
+
+const DefaultAside = ({ isSidebar, setSidebar, container }: IProps) => {
+  const classes = useStyles();
+  const { t: translate } = useTranslation();
+
+  const handleDrawerToggle = () => {
     setSidebar(false);
   };
 
-  return (
-    <Drawer anchor="left" open={showSidebar} onClose={toggleDrawer}>
-      <div className={classes.list} role="presentation" onClick={toggleDrawer}>
-        <List>
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText secondary="Home" />
-          </ListItem>
-        </List>
-        <Divider />
+  const drawer = (
+    <div>
+      <div className={classes.toolbar}>
+        <Grid container alignItems="center" justify="center" className={classes.gridBar}>
+          <TypographyBase variant="h1" text="HR" />
+        </Grid>
       </div>
-    </Drawer>
+
+      <Divider />
+
+      <List>
+        <Link to="/">
+          <ListItem button>
+            <ListItemIcon className={classes.icon}>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText secondary={translate("home")} />
+          </ListItem>
+        </Link>
+      </List>
+    </div>
+  );
+
+  return (
+    <nav className={classes.drawer}>
+      <Hidden smUp implementation="css">
+        <Drawer
+          container={container}
+          variant="temporary"
+          anchor="left"
+          open={isSidebar}
+          onClose={handleDrawerToggle}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Hidden>
+      <Hidden xsDown implementation="css">
+        <Drawer
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          variant="permanent"
+          open={isSidebar}
+        >
+          {drawer}
+        </Drawer>
+      </Hidden>
+    </nav>
   );
 };
 
-export default connector(DefaultAside);
+export default connector(memo(DefaultAside));
