@@ -42,7 +42,7 @@ const App = ({ mode }: PropsFromRedux) => {
 
   useEffect(() => {
     i18n.changeLanguage(lang)
-  }, [lang])
+  }, [lang, i18n])
 
   return (
     <MuiThemeProvider theme={theme(type)}>

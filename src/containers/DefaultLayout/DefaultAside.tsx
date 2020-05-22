@@ -79,6 +79,14 @@ const DefaultAside = ({ isSidebar, setSidebar, container }: IProps) => {
             <ListItemText secondary={translate("home")} />
           </ListItem>
         </Link>
+        <Link to="/slider-image">
+          <ListItem button>
+            <ListItemIcon className={classes.icon}>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText secondary="Slider Image" />
+          </ListItem>
+        </Link>
       </List>
     </div>
   );
