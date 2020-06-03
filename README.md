@@ -11,6 +11,12 @@
 - redux
 - redux-saga
 
+### Testing
+
+- Jest
+- Enzyme
+
+
 ### UI Component
 
 - material UI
@@ -24,6 +30,11 @@
 - eslint
 - prettier
 - husky
+
+### CI/CD
+
+- Jenkinsfile
+- SonarQuebe
 
 ## Git replacing LF with CRLF
 

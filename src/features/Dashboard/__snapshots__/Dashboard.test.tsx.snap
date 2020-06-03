@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DASHBOARD COMPONENT SHOULD SNAPSHOT RENDER WITH CONNECTED REDUX STORE 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <div
+    className="MuiTypography-root MuiTypography-h1 MuiTypography-colorTextSecondary"
+  >
+    dashboard
+  </div>
+   
+  <br />
+  <div
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-colorTextSecondary"
+  >
+    Example fetch data with saga
+  </div>
+   
+  <br />
+  <div
+    className="MuiTypography-root MuiTypography-h4 MuiTypography-colorTextSecondary"
+  >
+    Todo
+  </div>
+  <br />
+  <div>
+    <div
+      className="MuiTypography-root MuiTypography-h5 MuiTypography-colorTextSecondary"
+    >
+      Id: 1
+    </div>
+    <div
+      className="MuiTypography-root MuiTypography-h5 MuiTypography-colorTextSecondary"
+    >
+      Title: abc
+    </div>
+  </div>
+  <br />
+</div>
+`;

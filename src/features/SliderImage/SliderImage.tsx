@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import clsx from 'clsx';
 
 // material core
@@ -88,23 +88,13 @@ const SliderImage = () => {
   const refLens = useRef<any>();
   const refResult = useRef<any>();
 
-  const onPrevSlider = () => {
-    setIndex((index: number) => {
-      if (index > 0) index--;
-      return index;
-    })
-  }
+  const onPrevSlider = useCallback(() => {
+    setIndex(prev => (prev - 1 + data.length) % data.length)
+  }, [])
 
-  const onNextSlider = () => {
-    setIndex((index: number) => {
-      if (index < data.length - 1) index++;
-      return index;
-    })
-  }
-
-  const onSelectImage = (idx: number) => () => {
-    setIndex(idx)
-  }
+  const onNextSlider = useCallback(() => {
+    setIndex(prev => (prev + 1) % data.length)
+  }, [])
 
   function getCursorPos(e: React.MouseEvent) {
     let x = 0;
@@ -204,7 +194,7 @@ const SliderImage = () => {
       <ul className={classes.thumbnail}>
         {data.map((image: IData, idx: number) => (
           <li key={idx} className={clsx(selectedImage.id === image.id && classes.isActive)}>
-            <img src={image.image} alt="" onClick={onSelectImage(idx)} />
+            <img src={image.image} alt="" onClick={() => setIndex(idx)} />
           </li>
         ))}
       </ul>

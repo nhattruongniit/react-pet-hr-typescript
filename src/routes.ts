@@ -1,12 +1,12 @@
 import { lazy } from 'react';
 
 // containers
-const Home = lazy(() => import('features/Home'));
+const Dashboard = lazy(() => import('features/Dashboard'));
 const SliderImage = lazy(() => import('features/SliderImage'));
 
 const routes = [
-  { path: '/', exact: true, name: 'Home', component: Home },
-  { path: '/home', name: 'Home Page', component: Home },
+  { path: '/', exact: true, name: 'Home', component: Dashboard },
+  { path: '/dashboard', name: 'Dashboard Page', component: Dashboard },
   { path: '/slider-image', name: 'Slider Image', component: SliderImage },
 ];
 
