@@ -1,0 +1,11 @@
+{
+  "name": "@pet/scripts",
+  "version": "0.0.1",
+  "description": "Scripts automatic build",
+  "author": "tony",
+  "private": true,
+  "devDependencies": {
+    "dateformat": "^3.0.3",
+    "fs-extra": "^8.0.1"
+  }
+}

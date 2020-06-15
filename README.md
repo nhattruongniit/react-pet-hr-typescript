@@ -9,7 +9,8 @@
 - i18n
 - contextApi
 - redux
-- redux-saga
+- redux-saga  
+- Generate package components
 
 ### Testing
 
@@ -35,6 +36,19 @@
 
 - Jenkinsfile
 - SonarQuebe
+
+## How to generate package tgz
+
+```bash
+# install typescript 
+$ npm install -g typescript
+```
+
+
+```bash
+# cd src/components
+$ npm run deploy
+```
 
 ## Git replacing LF with CRLF
 
