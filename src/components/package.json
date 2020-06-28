@@ -23,7 +23,7 @@
     "yup": "^0.28.5"
   },
   "scripts": {
-    "deploy": "rm -rf ./dist && tsc && cd ../scripts && node release-files.js components"
+    "deploy": "rm -rf ./dist && tsc && cd ../../scripts && node release-files.js components"
   },
   "eslintConfig": {
     "extends": "react-app"

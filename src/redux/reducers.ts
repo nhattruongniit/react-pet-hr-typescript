@@ -4,6 +4,7 @@ import { AppActionTypes, IAppState, IAppAction } from './types';
 const initialState: IAppState = {
   isSidebar: false,
   mode: 'light',
+  isLoading: false
 };
 
 const reducers = (state = initialState, { type, payload }: IAppAction) => {
@@ -17,6 +18,11 @@ const reducers = (state = initialState, { type, payload }: IAppAction) => {
       return {
         ...state,
         mode: payload.mode,
+      };
+    case AppActionTypes.SET_LOADING:
+      return {
+        ...state,
+        isLoading: payload.isLoading,
       };
     default:
       return state;

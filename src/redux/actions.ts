@@ -11,3 +11,8 @@ export const setDarkMode = (mode: string) => ({
   type: AppActionTypes.SET_DARK_MODE,
   payload: { mode },
 });
+
+export const setLoading = (isLoading: boolean) => ({
+  type: AppActionTypes.SET_LOADING,
+  payload: { isLoading },
+});
