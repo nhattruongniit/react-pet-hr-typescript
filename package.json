@@ -75,5 +75,10 @@
     "react-test-renderer": "^16.13.1",
     "redux-mock-store": "^1.5.4",
     "redux-saga-test-plan": "^4.0.0-rc.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }
