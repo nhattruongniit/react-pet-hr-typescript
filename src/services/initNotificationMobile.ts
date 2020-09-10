@@ -1,4 +1,16 @@
-const platformDevice = 'iOS';
+const checkPlatform = () => {
+  if (window['monaca']) {
+    if (window['monaca'].isIOS) {
+      return 'iOS';
+    }
+    if (window['monaca'].isAndroid) {
+      return 'Android';
+    }
+  }
+  return 'Web';
+};
+
+const platformDevice = checkPlatform();
 
 export const getPushTokenDevice = async (isLogin: boolean) => {
   return new Promise((resolve, reject) => {
@@ -82,7 +94,7 @@ const initNotificationMobile = async (isLogin: boolean) => {
 
   if (FirebasePlugin) {
     getPushTokenDevice(isLogin)
-      .then((fcmToken: string) => {
+      .then((fcmToken: any) => {
         saveFcmToken(fcmToken);
       })
       .catch((error) => {

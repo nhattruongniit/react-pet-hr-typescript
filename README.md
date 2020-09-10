@@ -9,14 +9,14 @@
 - i18n
 - contextApi
 - redux
-- redux-saga  
+- redux-saga
+- react error boundary
 - Generate package components
 
 ### Testing
 
 - Jest
 - Enzyme
-
 
 ### UI Component
 
@@ -31,6 +31,7 @@
 - eslint
 - prettier
 - husky
+- lint-staged
 
 ### CI/CD
 
@@ -40,10 +41,9 @@
 ## How to generate package tgz
 
 ```bash
-# install typescript 
+# install typescript
 $ npm install -g typescript
 ```
-
 
 ```bash
 # cd src/components
@@ -146,6 +146,7 @@ $ npm run format
 # Directory structure
 
 ### Group by features
+
 One common way to structure projects is locate CSS, JS and tests together inside folders grouped by features
 
 ### The project structure
@@ -158,7 +159,7 @@ components/
   molecules/
     Search.tsx
 containers/
-features/          
+features/
   Dashboard
     Dashboard.tsx
     index.ts
@@ -199,7 +200,9 @@ This way when we search for files, we don't get a list of index.ts but will rece
 import Product from './Product';
 export default Product;
 ```
+
 or
+
 ```
 export { default } from './Product';
 ```
@@ -211,12 +214,15 @@ Components can be keep in `components/` folder (atom, molecules...). You can ref
 https://bradfrost.com/blog/post/atomic-web-design/
 
 ### Redux
+
 Create a `redux/` folder in each feature relate.
 
 #### types.ts
+
 Define interface state, action payload, action types.
 
 #### actions.ts
+
 Define action types.
 
 #### reducers.ts
@@ -224,9 +230,11 @@ Define action types.
 Update state
 
 #### saga.ts
+
 Perform side effects (e,g: call api ...)
 
 ### Hooks
+
 When we want to share logic between two javascript functions, we will extract it to a third function. Both components and hooks are functions, so this work for them too.
 
 A custom Hook is a javascript function whose name starts with `"use"` and that may call other hook. For example, `useTranslation` below is a custom hook:
@@ -242,6 +250,7 @@ export default useTranslate;
 ```
 
 ### Helpers
+
 Share an function logic for our app. It name should be in lowercase. For example, `sleep` below is a function.
 
 ```bash
