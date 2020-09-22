@@ -37,7 +37,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:cover": "react-scripts test --coverage --watchAll=false --verbose=true",
-    "test": "react-scripts test --colors",
+    "test": "react-scripts test --colors --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .ts,.tsx src --color",
     "format": "prettier --write src/**/*.{ts,tsx}",
