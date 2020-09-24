@@ -17,6 +17,7 @@
 
 - Jest
 - Enzyme
+- E2E
 
 ### UI Component
 

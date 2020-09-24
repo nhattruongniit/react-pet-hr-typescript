@@ -16,3 +16,8 @@ export const setLoading = (isLoading: boolean) => ({
   type: AppActionTypes.SET_LOADING,
   payload: { isLoading },
 });
+
+export const loginRequest = (payload: any) => ({
+  type: AppActionTypes.LOGIN_REQUEST,
+  payload,
+});

@@ -1,7 +1,7 @@
 export type IAppState = {
   isSidebar: boolean;
   mode: string;
-  isLoading: false
+  isLoading: false;
 };
 
 export type IAppAction = {
@@ -14,5 +14,7 @@ export enum AppActionTypes {
   SET_SIDEBAR = 'APP/SET_SIDEBAR',
   // dark mode
   SET_DARK_MODE = 'APP/SET_DARK_MODE',
-  SET_LOADING = 'APP/SET_LOADING'
+  SET_LOADING = 'APP/SET_LOADING',
+
+  LOGIN_REQUEST = 'APP/LOGIN_REQUEST',
 }
