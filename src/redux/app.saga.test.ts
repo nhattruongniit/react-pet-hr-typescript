@@ -54,7 +54,7 @@ defineFeature(feature, (test) => {
 //     const { mode } = JSON.parse(args[1].body);
 //     return Promise.resolve({
 //       ok: true,
-//       json: () => Promise.resolve(mode === 'MODE_CREATE_LOGIN_TOKEN' ? mockLoginTokenResponse : mockApiTokenResponse),
+//       json: () => Promise.resolve(mode === 'LOGIN' ? mockLoginTokenResponse : mockApiTokenResponse),
 //     });
 //   });
 
