@@ -36,6 +36,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:deploy-web": "set PUBLIC_URL=/tony-pet && npm run build",
     "test:cover": "react-scripts test --coverage --watchAll=false --verbose=true",
     "test": "react-scripts test --colors --watchAll=false",
     "eject": "react-scripts eject",
