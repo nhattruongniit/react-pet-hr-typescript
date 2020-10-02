@@ -68,3 +68,23 @@ describe('DASHBOARD SAGA', () => {
 //     });
 //   });
 // });
+
+
+//WRITE WAY 2
+// it('SHOULD YIELD FETCH SUCCESS', () => {
+//     const fakeResult = {
+//       data: {
+//         rows: [],
+//         total: 0,
+//       },
+//     };
+//     testSaga(watchFetchTalent, {
+//       type: ITalentListTypes.FETCH_TALENT_REQUEST,
+//       payload,
+//     })
+//       .next()
+//       .call(fetchTalent, payload)
+//       .next(fakeResult)
+//       .put({ type: ITalentListTypes.FETCH_TALENT_SUCCESS, payload: fakeResult.data })
+//       .finish();
+//   });
