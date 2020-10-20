@@ -38,7 +38,7 @@
     "build": "react-scripts build",
     "build:deploy-web": "set PUBLIC_URL=/tony-pet && npm run build",
     "test:cover": "react-scripts test --coverage --watchAll=false --verbose=true",
-    "test": "react-scripts test --colors --watchAll=false",
+    "test": "react-scripts test --colors  --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .ts,.tsx src --color",
     "format": "prettier --write src/**/*.{ts,tsx}",
