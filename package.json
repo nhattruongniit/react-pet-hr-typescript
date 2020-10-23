@@ -37,6 +37,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:deploy-web": "set PUBLIC_URL=/tony-pet && npm run build",
+    "build:qc": "NODE_ENV=production env-cmd -f .env.qc --no-override npm run build",
     "test:cover": "react-scripts test --coverage --watchAll=false --verbose=true",
     "test": "react-scripts test --colors  --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
