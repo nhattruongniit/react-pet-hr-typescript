@@ -14,6 +14,10 @@ jest.mock('react-i18next', () => ({
       t: jest.fn((value: string) => value),
     };
   },
+   initReactI18next: {
+    type: 'thirdParty',
+    init: jest.fn(),
+  },
 }));
 
 const testEmail = "truong@gmail.com";
