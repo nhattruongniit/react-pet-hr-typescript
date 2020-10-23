@@ -1,3 +1,35 @@
+// localstorage.js
+
+import { getExpiredTime } from 'utils/common';
+
+export const TIME_OUT_LOGIN_IN_MILLISECOND = 4 * 3600000;
+const keyLocal = 'tony';
+
+export function getExpiredTime(expiredIn: number) {
+  return new Date().getTime() + expiredIn;
+}
+
+export function isExpired(expiredTime: number) {
+  if (new Date().getTime() > expiredTime) {
+    return true;
+  }
+  return false;
+}
+
+
+const setExpiredTimeToLocalStorage = () => {
+  const expiredTime = getExpiredTime(TIME_OUT_LOGIN_IN_MILLISECOND);
+  localStorage.setItem(keyLocal, expiredTime.toString());
+};
+
+const getExpiredTimeFromLocalStorage = () => {
+  const expiredTime = localStorage.getItem(keyLocal) || '0';
+  return Number(expiredTime);
+};
+
+export { getExpiredTimeFromLocalStorage, setExpiredTimeToLocalStorage };
+
+
 // appClientRequest
 import { ServiceTypes } from '../config/index';
 import { API } from 'aws-amplify';
