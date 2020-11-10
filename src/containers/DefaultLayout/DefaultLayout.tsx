@@ -7,6 +7,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // route config
 import routes from 'routes';
 
+// container
+import ErrorBoundary from 'containers/ErrorBoundary';
+
 // styles
 import useStyles from './styles';
 
@@ -32,15 +35,15 @@ const DefaultLayout = () => {
       </aside>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Suspense fallback={<div />}>
-          <Switch>
-            {routes.map((route, idx) => {
-              return (
-                <Route key={idx} path={route.path} exact={route.exact} name={route.name} component={route.component} />
-              );
-            })}
-          </Switch>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<div />}>
+            <Switch>
+              {routes.map((route, idx) => {
+                return <Route key={idx} path={route.path} exact={route.exact} name={route.name} component={route.component} />;
+              })}
+            </Switch>
+          </Suspense>
+        </ErrorBoundary>
       </main>
     </div>
   );

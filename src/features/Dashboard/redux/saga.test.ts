@@ -35,3 +35,56 @@ describe('DASHBOARD SAGA', () => {
     });
   });
 });
+
+// WRITE TEST WITH MOCK API
+// describe('DASHBOARD SAGA', () => {
+//   describe('FETCH TODO FLOW', () => {
+//     it('SHOULD YIELD FETCH REQUEST', () => {
+//       return expectSaga(dashboardSaga).take(IDashboardTypes.FETCH_TODO_REQUEST).run();
+//     });
+
+//     it('SHOULD YIELD FETCH SUCCESS', () => {
+//       jest.spyOn(window, 'fetch').mockImplementation(() => {
+//         const fetchResponse = {
+//           json: () => Promise.resolve({ data: undefined }),
+//         };
+//         return Promise.resolve(fetchResponse);
+//       });
+//       return expectSaga(fetchTodoSaga)
+//         .put({
+//           type: IDashboardTypes.FETCH_TODO_SUCCESS,
+//           payload: {
+//             todos: undefined,
+//           },
+//         })
+//         .run();
+//     });
+
+//     it('SHOULD YIELD FETCH ERROR', () => {
+//       jest.spyOn(window, 'fetch').mockImplementation(() => {
+//         return Promise.resolve({ ok: false, json: () => Promise.resolve({}) });
+//       });
+//       return expectSaga(fetchTodoSaga).put(fetchTodoError()).run();
+//     });
+//   });
+// });
+
+
+//WRITE WAY 2
+// it('SHOULD YIELD FETCH SUCCESS', () => {
+//     const fakeResult = {
+//       data: {
+//         rows: [],
+//         total: 0,
+//       },
+//     };
+//     testSaga(watchFetchTalent, {
+//       type: ITalentListTypes.FETCH_TALENT_REQUEST,
+//       payload,
+//     })
+//       .next()
+//       .call(fetchTalent, payload)
+//       .next(fakeResult)
+//       .put({ type: ITalentListTypes.FETCH_TALENT_SUCCESS, payload: fakeResult.data })
+//       .finish();
+//   });

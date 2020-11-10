@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect, ConnectedProps } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
@@ -46,7 +46,7 @@ const App = ({ mode }: PropsFromRedux) => {
 
   return (
     <MuiThemeProvider theme={theme(type)}>
-      <BrowserRouter>
+      <Router basename={process.env.PUBLIC_URL}>
         <Suspense fallback={<div />}>
           <Switch>
             {/* <Route exact path="/login" render={() => isAuth ? <Redirect to="/" /> : <Login />} /> */}
@@ -54,7 +54,7 @@ const App = ({ mode }: PropsFromRedux) => {
             <AuthRoute path="/" isAuth={isAuth} component={DefaultLayout} />
           </Switch>
         </Suspense>
-      </BrowserRouter>
+      </Router>
     </MuiThemeProvider>
   );
 };
