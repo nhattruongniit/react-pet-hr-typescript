@@ -1,3 +1,4 @@
+/*eslint-disable*/
 const platformDevice = 'iOS';
 
 export const getPushTokenDevice = async (isLogin: boolean) => {
@@ -49,6 +50,7 @@ export const getPushTokenDevice = async (isLogin: boolean) => {
     };
 
     switch (platformDevice) {
+      /*eslint-disable*/
       case 'Android':
         getToken();
         break;

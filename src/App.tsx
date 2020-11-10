@@ -41,8 +41,8 @@ const App = ({ mode }: PropsFromRedux) => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    i18n.changeLanguage(lang)
-  }, [lang, i18n])
+    i18n.changeLanguage(lang);
+  }, [lang, i18n]);
 
   return (
     <MuiThemeProvider theme={theme(type)}>
@@ -57,6 +57,6 @@ const App = ({ mode }: PropsFromRedux) => {
       </BrowserRouter>
     </MuiThemeProvider>
   );
-}
+};
 
 export default connector(App);
