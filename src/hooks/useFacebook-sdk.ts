@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import CONFIG from 'config';
+// import CONFIG from 'config';
 const useFacebook = () => {
   const [fbSdkLoaded, setFbSdkLoaded] = useState(false);
   useEffect(() => {
